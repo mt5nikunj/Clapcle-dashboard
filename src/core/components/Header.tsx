@@ -54,7 +54,7 @@ import {
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar
             disableGutters
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            sx={{ display: "flex", justifyContent: "space-between", padding:'16px 24px 12px 24px' }}
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton>
@@ -137,7 +137,7 @@ import {
           </Toolbar>
         </AppBar>
   
-        <div role="presentation">
+        <Box role="presentation" sx={{padding: "0px 24px 12px 24px"}}>
           <Breadcrumbs aria-label="breadcrumb">
             <Link
               underline="hover"
@@ -167,7 +167,7 @@ import {
               Customer
             </Typography>
           </Breadcrumbs>
-        </div>
+        </Box>
       </>
     );
   };

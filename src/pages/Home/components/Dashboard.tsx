@@ -150,12 +150,12 @@ const Dashboard = () => {
     setValue(newValue);
   };
   return (
-    <Box sx={{ height: "100%", width: "100%", padding: "15px" }}>
+    <Box sx={{ height: "100%", width: "100%", padding: "0px" }}>
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          padding: " 0px 20px",
+          padding: " 0px 24px",
         }}
       >
         <Box sx={{ width: 300 }}>
@@ -210,7 +210,7 @@ const Dashboard = () => {
           </Button>
         </Box>
       </Box>
-      <Box>
+      <Box >
         <TabPanel value={value} index={0}>
           <Box
             sx={{
@@ -219,7 +219,8 @@ const Dashboard = () => {
               justifyContent: "space-between",
               backgroundColor: "#fff",
               borderRadius: "8px",
-            }}
+              height:'116px'
+             }}
           >
             {statsData.map((stat, index) => (
               <>
@@ -280,7 +281,7 @@ const Dashboard = () => {
               </>
             ))}
           </Box>
-          <Box mt={"16px"}>
+          <Box mt={"16px"} >
             <Grid container spacing={2}>
               <Grid item xs={8}>
                 <Box
@@ -288,6 +289,8 @@ const Dashboard = () => {
                     display: "flex",
                     backgroundColor: "#ffffff",
                     borderRadius: "8px",
+                    height:'419px',
+                    width:'920px'
                   }}
                 >
                   <Box sx={{ padding: "10px" }}>
@@ -348,8 +351,8 @@ const Dashboard = () => {
                 </Box>
               </Grid>
               <Grid item xs={4}>
-              <Box sx={{ backgroundColor: "#ffff", padding: "24px", borderRadius: "8px",  }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between",marginBottom:'20px' }}>
+              <Box sx={{ backgroundColor: "#ffff", padding: "24px", borderRadius: "8px",height:'419px'  }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between",marginBottom:'20px',  }}>
         <Typography variant="body1">Recent activities</Typography>
         <Typography variant="body1">View All</Typography>
       </Box>
