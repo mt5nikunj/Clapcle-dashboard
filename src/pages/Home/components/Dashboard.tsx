@@ -103,7 +103,8 @@ const Dashboard = () => {
       name: "Abhilash Kumar",
       action: "Added a note",
       tag: "Customer",
-      description: "This is the main record of the customer details and its sales analysis.",
+      description:
+        "This is the main record of the customer details and its sales analysis.",
       user: "Akhil Anand",
       customerId: "#CUS001",
       gst: "GST 27ABCDE1234F1Z5",
@@ -114,7 +115,8 @@ const Dashboard = () => {
       name: "Abhilash Kumar",
       action: "Added a note",
       tag: "Customer",
-      description: "This is the main record of the customer details and its sales analysis.",
+      description:
+        "This is the main record of the customer details and its sales analysis.",
       user: "Akhil Anand",
       customerId: "#CUS001",
       gst: "GST 27ABCDE1234F1Z5",
@@ -122,8 +124,6 @@ const Dashboard = () => {
     },
     // More activity objects...
   ];
-
-
 
   const pieData = [
     { name: "Mumbai", value: 500 },
@@ -141,10 +141,7 @@ const Dashboard = () => {
     { name: "Feb 1-9", added: 60, lost: 50, converted: 70 },
   ];
 
-
-
-
-  const COLORS = ["#D35BE3", "#7CEAED", "#59A3ED", "#E99626","#9EE563"];
+  const COLORS = ["#D35BE3", "#7CEAED", "#59A3ED", "#E99626", "#9EE563"];
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -161,10 +158,12 @@ const Dashboard = () => {
         <Box sx={{ width: 300 }}>
           <AppBar
             position="static"
+            elevation={0.0}
             sx={{
-              backgroundColor: "white",
+              backgroundColor: "#FFFFFF99",
               color: "black",
-              borderRadius: "5px",
+              borderRadius: "8px",
+              borderColor: "#FFFFFF",
             }}
           >
             <Tabs
@@ -174,11 +173,8 @@ const Dashboard = () => {
               textColor="inherit"
               variant="fullWidth"
               aria-label="full width tabs example"
-              
             >
-            
-              {["Dashboard", "CustomerList"].map(
-              (label, index) => (
+              {["Dashboard", "CustomerList"].map((label, index) => (
                 <Tab
                   key={index}
                   label={label}
@@ -187,11 +183,9 @@ const Dashboard = () => {
                     color: value === index ? "#FFFFFF" : "#7859ED", // Selected tab text color
                     borderRadius: "4px",
                     transition: "0.3s",
-                    // fontSize: "16px",
                   }}
                 />
-              )
-            )}
+              ))}
             </Tabs>
           </AppBar>
         </Box>
@@ -202,15 +196,15 @@ const Dashboard = () => {
               color: "#ffff",
               cursor: "pointer",
               borderRadius: "5px",
-              height:'48px',
-              width:'192px'
+              height: "48px",
+              width: "192px",
             }}
           >
             Add New Customer
           </Button>
         </Box>
       </Box>
-      <Box >
+      <Box>
         <TabPanel value={value} index={0}>
           <Box
             sx={{
@@ -219,8 +213,8 @@ const Dashboard = () => {
               justifyContent: "space-between",
               backgroundColor: "#fff",
               borderRadius: "8px",
-              height:'116px'
-             }}
+              height: "116px",
+            }}
           >
             {statsData.map((stat, index) => (
               <>
@@ -281,7 +275,7 @@ const Dashboard = () => {
               </>
             ))}
           </Box>
-          <Box mt={"16px"} >
+          <Box mt={"16px"}>
             <Grid container spacing={2}>
               <Grid item xs={8}>
                 <Box
@@ -289,8 +283,7 @@ const Dashboard = () => {
                     display: "flex",
                     backgroundColor: "#ffffff",
                     borderRadius: "8px",
-                    height:'419px',
-                    width:'920px'
+                    height: "419px",
                   }}
                 >
                   <Box sx={{ padding: "10px" }}>
@@ -323,20 +316,23 @@ const Dashboard = () => {
                     <Box>
                       <Box>Added v/s Lost v/s Converted Leads</Box>
                     </Box>
-                    <ResponsiveContainer width="100%" height={395} minWidth={550}>
+                    <ResponsiveContainer
+                      width="100%"
+                      height={395}
+                      minWidth={550}
+                    >
                       <BarChart data={barData}>
                         <XAxis dataKey="name" stroke="#8884d8" />
                         <YAxis />
                         <Tooltip />
                         <Bar
                           dataKey="added"
-                          fill={'#95e79c'}
+                          fill={"#95e79c"}
                           // radius={[5, 5, -5, -5]}
-
                         />
                         <Bar
                           dataKey="lost"
-                          fill={'#D35BE3'}
+                          fill={"#D35BE3"}
                           // radius={[5, 5, 5, 5]}
                         />
                         <Bar
@@ -344,75 +340,132 @@ const Dashboard = () => {
                           fill={COLORS[2]}
                           // radius={[5, 5, 5, 5]}
                         />
-                     
                       </BarChart>
                     </ResponsiveContainer>
                   </Box>
                 </Box>
               </Grid>
               <Grid item xs={4}>
-              <Box sx={{ backgroundColor: "#ffff", padding: "24px", borderRadius: "8px",height:'419px'  }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between",marginBottom:'20px',  }}>
-        <Typography variant="body1">Recent activities</Typography>
-        <Typography variant="body1">View All</Typography>
-      </Box>
-      {activities.map((activity, index) => (
-        // <ActivityItem key={index} {...activity} />
-        <Box sx={{ display: "flex", marginBottom: "10px" }}>
-        <Box>
-          <img src={activity.imgSrc} alt="file" loading="lazy" height={"24px"} width={"24px"} />
-        </Box>
-        <Box
-          sx={{
-            height: "100%",
-            padding: "10px",
-            "&:hover": {
-              backgroundColor: "white",
-              boxShadow: "0px 4px 10px rgba(11, 11, 11, 0.1)",
-              transform: "scale(1.02)",
-            },
-            cursor: "pointer",
-            marginLeft:'15px',
-            borderRadius:'8px'
-          }}
-        >
-          <Box sx={{ display: "flex", justifyContent: "space-between", paddingBottom: "10px" }}>
-            <Box>{activity.name}</Box>
-            <Typography variant="body2" sx={{ color: "grey" }}>
-              {activity.action}
-            </Typography>
-            <Box
-              sx={{
-                backgroundColor: "hsl(198.75deg 53.33% 94.12%)",
-                borderRadius: "10px",
-                padding: "5px",
-                fontSize: "10px",
-              }}
-            >
-              {activity.tag}
-            </Box>
-          </Box>
-          <Typography sx={{ paddingBottom: "10px", fontSize: "14px", color: "grey" }}>{activity.description}</Typography>
-          <Box sx={{ display: "flex", justifyContent: "space-between", paddingBottom: "10px" }}>
-            <Box sx={{ display: "flex" }}>
-              <Box>{activity.user} </Box>
-              <Box>{activity.customerId}</Box>
-            </Box>
-            <Box sx={{ display: "flex" }}>
-              <img src={callImg} alt="call" loading="lazy" height={"20px"} width={"20px"}  />
-              <img src={smsImg} alt="sms" loading="lazy" height={"20px"} width={"20px"} />
-            </Box>
-          </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography sx={{ color: "grey" }}>{activity.gst}</Typography>
-            <Typography variant="body2" sx={{ color: "grey" }}>
-              {activity.time}
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      ))}
-    </Box>
+                <Box
+                  sx={{
+                    backgroundColor: "#ffff",
+                    padding: "24px",
+                    borderRadius: "8px",
+                    height: "419px",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    <Typography variant="body1">Recent activities</Typography>
+                    <Typography variant="body1">View All</Typography>
+                  </Box>
+                  {activities.map((activity, index) => (
+                    // <ActivityItem key={index} {...activity} />
+                    <Box sx={{ display: "flex", marginBottom: "10px" }}>
+                      <Box>
+                        <img
+                          src={activity.imgSrc}
+                          alt="file"
+                          loading="lazy"
+                          height={"24px"}
+                          width={"24px"}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          height: "100%",
+                          padding: "10px",
+                          "&:hover": {
+                            backgroundColor: "white",
+                            boxShadow: "0px 4px 10px rgba(11, 11, 11, 0.1)",
+                            transform: "scale(1.02)",
+                          },
+                          cursor: "pointer",
+                          marginLeft: "15px",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            paddingBottom: "10px",
+                          }}
+                        >
+                          <Box>{activity.name}</Box>
+                          <Typography variant="body2" sx={{ color: "grey" }}>
+                            {activity.action}
+                          </Typography>
+                          <Box
+                            sx={{
+                              backgroundColor: "hsl(198.75deg 53.33% 94.12%)",
+                              borderRadius: "10px",
+                              padding: "5px",
+                              fontSize: "10px",
+                            }}
+                          >
+                            {activity.tag}
+                          </Box>
+                        </Box>
+                        <Typography
+                          sx={{
+                            paddingBottom: "10px",
+                            fontSize: "14px",
+                            color: "grey",
+                          }}
+                        >
+                          {activity.description}
+                        </Typography>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            paddingBottom: "10px",
+                          }}
+                        >
+                          <Box sx={{ display: "flex" }}>
+                            <Box>{activity.user} </Box>
+                            <Box>{activity.customerId}</Box>
+                          </Box>
+                          <Box sx={{ display: "flex" }}>
+                            <img
+                              src={callImg}
+                              alt="call"
+                              loading="lazy"
+                              height={"20px"}
+                              width={"20px"}
+                            />
+                            <img
+                              src={smsImg}
+                              alt="sms"
+                              loading="lazy"
+                              height={"20px"}
+                              width={"20px"}
+                            />
+                          </Box>
+                        </Box>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <Typography sx={{ color: "grey" }}>
+                            {activity.gst}
+                          </Typography>
+                          <Typography variant="body2" sx={{ color: "grey" }}>
+                            {activity.time}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                  ))}
+                </Box>
               </Grid>
             </Grid>
           </Box>

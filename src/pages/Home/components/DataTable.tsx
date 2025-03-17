@@ -9,6 +9,7 @@ import {
   TableBody,
   Typography,
   Tab,
+  AppBar,
   Tabs,
 } from "@mui/material";
 import { CustomerData } from "../utilities/model/datatable.model";
@@ -53,7 +54,7 @@ const DataTable = () => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  const [hoveredRow, setHoveredRow] = useState('');
+  const [hoveredRow, setHoveredRow] = useState("");
 
   const customerData: CustomerData[] = [
     {
@@ -248,28 +249,38 @@ const DataTable = () => {
             paddingBottom: "9px",
           }}
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            textColor="inherit"
-            TabIndicatorProps={{ style: { display: "none" } }} // Hides indicator
+          <AppBar
+            position="static"
+            elevation={0.0}
+            sx={{
+              backgroundColor: "#FFFFFF99",
+              color: "black",
+              borderRadius: "8px",
+              borderColor: "#FFFFFF",
+            }}
           >
-            {["Top Customer", "Top Negative Balance", "Recently Added"].map(
-              (label, index) => (
-                <Tab
-                  key={index}
-                  label={label}
-                  sx={{
-                    bgcolor: value === index ? "#7859ED" : "transparent", // Selected tab background color
-                    color: value === index ? "#FFFFFF" : "#7859ED", // Selected tab text color
-                    borderRadius: "4px",
-                    transition: "0.3s",
-                    // fontSize: "16px",
-                  }}
-                />
-              )
-            )}
-          </Tabs>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              textColor="inherit"
+              TabIndicatorProps={{ style: { display: "none" } }} // Hides indicator
+            >
+              {["Top Customer", "Top Negative Balance", "Recently Added"].map(
+                (label, index) => (
+                  <Tab
+                    key={index}
+                    label={label}
+                    sx={{
+                      bgcolor: value === index ? "#7859ED" : "transparent", // Selected tab background color
+                      color: value === index ? "#FFFFFF" : "#7859ED", // Selected tab text color
+                      borderRadius: "4px",
+                      transition: "0.3s",
+                    }}
+                  />
+                )
+              )}
+            </Tabs>
+          </AppBar>
         </Box>
 
         <Typography
@@ -277,7 +288,7 @@ const DataTable = () => {
           my={2}
           style={{
             fontSize: "16px",
-            fontWeight: 600,
+          
             color: "#7859ED",
             letterSpacing: "0%",
           }}
@@ -286,7 +297,9 @@ const DataTable = () => {
         </Typography>
       </Box>
       <TabPanel value={value} index={0}>
-        <TableContainer sx={{ borderRadius: "8px", width: "100%", overflowX: "hidden" }}>
+        <TableContainer
+          sx={{ borderRadius: "8px", width: "100%", overflowX: "hidden" }}
+        >
           <Table aria-label="customer table" sx={{ width: "100%" }}>
             <TableHead sx={{ backgroundColor: "#BDE1F84D" }}>
               <TableRow>
@@ -318,7 +331,7 @@ const DataTable = () => {
                 <TableRow
                   key={row.id}
                   onMouseEnter={() => setHoveredRow(row.id)}
-                  onMouseLeave={() => setHoveredRow('')}
+                  onMouseLeave={() => setHoveredRow("")}
                   sx={{
                     fontSize: "14px",
                     fontWeight: 400,
@@ -433,4 +446,3 @@ const DataTable = () => {
 };
 
 export default DataTable;
-
