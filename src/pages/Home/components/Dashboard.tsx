@@ -20,7 +20,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import React, { useState } from "react";
-import fileImg from "./../../../assets/file.svg";
+import fileImg from "./../../../assets/empty-wallet.svg";
 import addImg from "./../../../assets/add-square.svg";
 import callImg from "./../../../assets/call-calling.svg";
 import smsImg from "./../../../assets/sms.svg";
@@ -70,28 +70,28 @@ const Dashboard = () => {
     {
       icon: fileImg,
       title: "Active Customers",
-      value: "20K",
+      value: "20k",
       percentage: "10",
       arrowIcon: upArrowImg,
     },
     {
       icon: fileImg,
       title: "Total Customers",
-      value: "20K",
+      value: "20k",
       percentage: "10",
       arrowIcon: upArrowImg,
     },
     {
       icon: fileImg,
       title: "Total Leads",
-      value: "20K",
+      value: "20k",
       percentage: "10",
       arrowIcon: upArrowImg,
     },
     {
       icon: fileImg,
       title: "Customer Retention Rate",
-      value: "20K",
+      value: "20k",
       percentage: "10",
       arrowIcon: upArrowImg,
     },
@@ -155,7 +155,14 @@ const Dashboard = () => {
           padding: " 0px 24px",
         }}
       >
-        <Box sx={{ width: 300, backgroundColor:'#FFFFFF99', padding:'8px',borderRadius: "8px", }}>
+        <Box
+          sx={{
+            width: 300,
+            backgroundColor: "#FFFFFF99",
+            padding: "8px",
+            borderRadius: "8px",
+          }}
+        >
           <AppBar
             position="static"
             elevation={0.0}
@@ -179,13 +186,13 @@ const Dashboard = () => {
                   key={index}
                   label={label}
                   sx={{
-                    bgcolor: value === index ? "#7859ED" : "#FFFFFF", 
-                    color: value === index ? "#FFFFFF" : "#7859ED", 
-                    height:'40px',
-                    fontWeight:'600',
+                    bgcolor: value === index ? "#7859ED" : "#FFFFFF",
+                    color: value === index ? "#FFFFFF" : "#7859ED",
+                    height: "40px",
+                    fontWeight: "600",
                     borderRadius: "4px",
                     transition: "0.3s",
-                    textTransform:'capitalize'
+                    textTransform: "capitalize",
                   }}
                 />
               ))}
@@ -200,9 +207,9 @@ const Dashboard = () => {
               cursor: "pointer",
               borderRadius: "5px",
               height: "48px",
-              fontWeight:'600',
+              fontWeight: "600",
               width: "192px",
-              textTransform:'capitalize'
+              textTransform: "capitalize",
             }}
           >
             Add New Customer
@@ -225,59 +232,113 @@ const Dashboard = () => {
               <>
                 <Box sx={{ height: "100%", padding: "16px" }}>
                   <Box
-                    sx={{ display: "flex",height:'84px', justifyContent: "space-between" }}
+                    sx={{
+                      display: "flex",
+                      gap: "10px",
+                    }}
                   >
-                    <Box px={1}>
+                    <Box height={"52px"} width={"52px"} textAlign={'center'}>
                       <img
                         src={stat.icon}
                         alt={stat.title}
                         loading="lazy"
-                        height={"52px"}
-                        width={"52px"}
+                        height={"40px"}
+                        width={"40px"}
                       />
                     </Box>
-                    <Box px={1}>
-                      <Box my={1} color={"#999999"}  fontWeight={500}>
-                        {stat.title}
-                      </Box>
-                      <Box fontSize={12} color={"#999999"} mt={"20px"}>
-                        Compared to Last Month
-                      </Box>
-                    </Box>
-                    <Box px={1}>
-                      <Box fontSize={28} fontWeight={"600"} color="#484848">
-                        {stat.value}
+                    <Box sx={{ height: "84px" }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          justifyContent: "space-between",
+                          height:'48px'
+                        }}
+                      >
+                        <Box
+                          color={"#999999"}
+                          fontSize={"18px"}
+                          fontWeight={500}
+                        >
+                          {stat.title}
+                        </Box>
+                        <Box
+                          color={"#484848"}
+                          fontSize={"40px"}
+                          fontWeight={700}
+                        >
+                          {stat.value}
+                        </Box>
                       </Box>
                       <Box
                         sx={{
                           display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          backgroundColor: "hsl(141.43deg 70% 92.16%)",
-                          borderRadius: "4px",
-                          marginTop: "10px",
+                          justifyContent: "space-between",
+                          alignItems:'center',
+                          gap: "16px",
                           height:'28px'
                         }}
                       >
-                        <Box fontSize={'12px'} paddingRight={"3px"} color={'#2D643D'} >
-                          {stat.percentage}%
+                        <Box fontSize={"12px"} fontWeight={500} color={"#999999"}>
+                          Compared to Last Month
                         </Box>
-                        <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                          <img
-                            src={upArrowImg}
-                            alt="trend"
-                            loading="lazy"
-                            height={"20px"}
-                            width={"20px"}
-                          />
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            backgroundColor: "hsl(141.43deg 70% 92.16%)",
+                            borderRadius: "4px",
+                            padding:'4px',
+                            gap:'8px',
+                            width:'59px'
+                            // marginTop: "10px",
+                            // height: "28px",
+                          }}
+                        >
+                          <Box
+                            fontSize={"12px"}
+                            color={"#2D643D"}
+                          >
+                            {stat.percentage}%
+                          </Box>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <img
+                              src={upArrowImg}
+                              alt="trend"
+                              loading="lazy"
+                              height={"20px"}
+                              width={"20px"}
+                            />
+                          </Box>
                         </Box>
                       </Box>
                     </Box>
                   </Box>
                 </Box>
                 {index < statsData.length - 1 && (
-                  <Box sx={{display:'flex', alignItems:'center', height:'100%'}}>
-                  <Box  sx={{height:'64px', width:'1px',  backgroundColor:'#E6E6E6',borderRadius:'4px'}} ></Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      height: "100%",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        height: "64px",
+                        width: "1px",
+                        backgroundColor: "#E6E6E6",
+                        borderRadius: "4px",
+                      }}
+                    ></Box>
                   </Box>
                 )}
               </>
@@ -370,7 +431,9 @@ const Dashboard = () => {
                     }}
                   >
                     <Typography variant="body1">Recent activities</Typography>
-                    <Typography variant="body1" color="#7859ED">View All</Typography>
+                    <Typography variant="body1" color="#7859ED">
+                      View All
+                    </Typography>
                   </Box>
                   {activities.map((activity, index) => (
                     // <ActivityItem key={index} {...activity} />
@@ -405,7 +468,7 @@ const Dashboard = () => {
                             paddingBottom: "10px",
                           }}
                         >
-                          <Box color={'#484848'}>{activity.name}</Box>
+                          <Box color={"#484848"}>{activity.name}</Box>
                           <Typography variant="body2" sx={{ color: "#999999" }}>
                             {activity.action}
                           </Typography>
@@ -425,6 +488,7 @@ const Dashboard = () => {
                             paddingBottom: "10px",
                             fontSize: "14px",
                             color: "#999999",
+                            fontWeight:'400'
                           }}
                         >
                           {activity.description}
@@ -436,11 +500,11 @@ const Dashboard = () => {
                             paddingBottom: "10px",
                           }}
                         >
-                          <Box sx={{ display: "flex",color :'#484848'}}>
-                            <Box>{activity.user} </Box>
-                            <Box>{activity.customerId}</Box>
+                          <Box sx={{ display: "flex", alignItems:'center', color: "#484848", gap:'4px',fontWeight:'600' }}>
+                            <Box color={'#7859ED'}>{activity.user} </Box>
+                            <Box color={"#999999"} fontSize={'14px'} >{activity.customerId}</Box>
                           </Box>
-                          <Box sx={{ display: "flex", gap:'16px' }}>
+                          <Box sx={{ display: "flex", gap: "16px" }}>
                             <img
                               src={callImg}
                               alt="call"
@@ -463,10 +527,10 @@ const Dashboard = () => {
                             justifyContent: "space-between",
                           }}
                         >
-                          <Typography sx={{ color: "#999999" }}>
+                          <Typography variant="body2" sx={{ color: "#999999", fontSize:'14px', fontWeight:'500' }}>
                             {activity.gst}
                           </Typography>
-                          <Typography variant="body2" sx={{ color: "#999999" }}>
+                          <Typography variant="body2" sx={{ color: "#999999", fontSize:'12px', fontWeight:'500' }}>
                             {activity.time}
                           </Typography>
                         </Box>
