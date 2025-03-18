@@ -179,10 +179,13 @@ const Dashboard = () => {
                   key={index}
                   label={label}
                   sx={{
-                    bgcolor: value === index ? "#7859ED" : "transparent", // Selected tab background color
-                    color: value === index ? "#FFFFFF" : "#7859ED", // Selected tab text color
+                    bgcolor: value === index ? "#7859ED" : "#FFFFFF", 
+                    color: value === index ? "#FFFFFF" : "#7859ED", 
+                    height:'40px',
+                    fontWeight:'600',
                     borderRadius: "4px",
                     transition: "0.3s",
+                    textTransform:'capitalize'
                   }}
                 />
               ))}
@@ -197,7 +200,9 @@ const Dashboard = () => {
               cursor: "pointer",
               borderRadius: "5px",
               height: "48px",
+              fontWeight:'600',
               width: "192px",
+              textTransform:'capitalize'
             }}
           >
             Add New Customer
@@ -220,7 +225,7 @@ const Dashboard = () => {
               <>
                 <Box sx={{ height: "100%", padding: "16px" }}>
                   <Box
-                    sx={{ display: "flex", justifyContent: "space-between" }}
+                    sx={{ display: "flex",height:'84px', justifyContent: "space-between" }}
                   >
                     <Box px={1}>
                       <img
@@ -232,15 +237,15 @@ const Dashboard = () => {
                       />
                     </Box>
                     <Box px={1}>
-                      <Box my={1} color={"grey"}>
+                      <Box my={1} color={"#999999"}  fontWeight={500}>
                         {stat.title}
                       </Box>
-                      <Box fontSize={12} color={"grey"} mt={"20px"}>
+                      <Box fontSize={12} color={"#999999"} mt={"20px"}>
                         Compared to Last Month
                       </Box>
                     </Box>
                     <Box px={1}>
-                      <Box fontSize={26} fontWeight={"600"} color="#484848">
+                      <Box fontSize={28} fontWeight={"600"} color="#484848">
                         {stat.value}
                       </Box>
                       <Box
@@ -270,7 +275,9 @@ const Dashboard = () => {
                   </Box>
                 </Box>
                 {index < statsData.length - 1 && (
-                  <Divider orientation="vertical" variant="middle" flexItem />
+                  <Box sx={{display:'flex', alignItems:'center', height:'100%'}}>
+                  <Box  sx={{height:'64px', width:'1px',  backgroundColor:'#E6E6E6',borderRadius:'4px'}} ></Box>
+                  </Box>
                 )}
               </>
             ))}
@@ -362,7 +369,7 @@ const Dashboard = () => {
                     }}
                   >
                     <Typography variant="body1">Recent activities</Typography>
-                    <Typography variant="body1">View All</Typography>
+                    <Typography variant="body1" color="#7859ED">View All</Typography>
                   </Box>
                   {activities.map((activity, index) => (
                     // <ActivityItem key={index} {...activity} />
@@ -397,15 +404,15 @@ const Dashboard = () => {
                             paddingBottom: "10px",
                           }}
                         >
-                          <Box>{activity.name}</Box>
-                          <Typography variant="body2" sx={{ color: "grey" }}>
+                          <Box color={'#484848'}>{activity.name}</Box>
+                          <Typography variant="body2" sx={{ color: "#999999" }}>
                             {activity.action}
                           </Typography>
                           <Box
                             sx={{
-                              backgroundColor: "hsl(198.75deg 53.33% 94.12%)",
-                              borderRadius: "10px",
-                              padding: "5px",
+                              backgroundColor: "#EAF3F7",
+                              borderRadius: "4px",
+                              padding: "6px 8px",
                               fontSize: "10px",
                             }}
                           >
@@ -416,7 +423,7 @@ const Dashboard = () => {
                           sx={{
                             paddingBottom: "10px",
                             fontSize: "14px",
-                            color: "grey",
+                            color: "#999999",
                           }}
                         >
                           {activity.description}
@@ -428,11 +435,11 @@ const Dashboard = () => {
                             paddingBottom: "10px",
                           }}
                         >
-                          <Box sx={{ display: "flex" }}>
+                          <Box sx={{ display: "flex",color :'#484848'}}>
                             <Box>{activity.user} </Box>
                             <Box>{activity.customerId}</Box>
                           </Box>
-                          <Box sx={{ display: "flex" }}>
+                          <Box sx={{ display: "flex", gap:'16px' }}>
                             <img
                               src={callImg}
                               alt="call"
@@ -455,10 +462,10 @@ const Dashboard = () => {
                             justifyContent: "space-between",
                           }}
                         >
-                          <Typography sx={{ color: "grey" }}>
+                          <Typography sx={{ color: "#999999" }}>
                             {activity.gst}
                           </Typography>
-                          <Typography variant="body2" sx={{ color: "grey" }}>
+                          <Typography variant="body2" sx={{ color: "#999999" }}>
                             {activity.time}
                           </Typography>
                         </Box>
