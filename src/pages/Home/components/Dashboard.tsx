@@ -155,13 +155,13 @@ const Dashboard = () => {
           padding: " 0px 24px",
         }}
       >
-        <Box sx={{ width: 300 }}>
+        <Box sx={{ width: 300, backgroundColor:'#FFFFFF99', padding:'8px',borderRadius: "8px", }}>
           <AppBar
             position="static"
             elevation={0.0}
             sx={{
               backgroundColor: "#FFFFFF99",
-              color: "black",
+              // color: "black",
               borderRadius: "8px",
               borderColor: "#FFFFFF",
             }}

@@ -156,7 +156,7 @@ const Header = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2, ml: 3 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2,  }}>
             {renderMenu("Quick Access")}
             {renderMenu("Activities")}
             <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>

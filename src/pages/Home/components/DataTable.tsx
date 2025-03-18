@@ -227,26 +227,29 @@ const DataTable = () => {
         borderRadius: "8px",
         border: "1px",
         borderColor: "#FFFFFF",
-        padding: "0px",
+        // padding: "0px",
+        paddingLeft: "24px",
+        paddingRight: "24px",
+        paddingTop:'16px',
+        paddingBottom:'16px',
       }}
     >
       <Box
         sx={{
+          height: "56px",
           display: "flex",
           justifyContent: "space-between",
+          alignItems:'center',
           paddingLeft: "24px",
-          backgroundColor: "#FFFFFF",
           paddingRight: "24px",
+          backgroundColor: "#FFFFFF",
           border: "1px",
-          borderColor: "#FFFFFF",
+          textAlign:'center'
         }}
       >
         <Box
           sx={{
             color: "#FFFFFF99",
-            height: "56px",
-            paddingTop: "16px",
-            paddingBottom: "9px",
           }}
         >
           <AppBar
@@ -273,9 +276,12 @@ const DataTable = () => {
                     sx={{
                       bgcolor: value === index ? "#7859ED" : "transparent", // Selected tab background color
                       color: value === index ? "#FFFFFF" : "#7859ED", // Selected tab text color
+                      height:'40px',
+                      fontWeight:'600',
+                      lineHeight:'24px',
                       borderRadius: "4px",
                       transition: "0.3s",
-                      textTransform: "capitalize",
+                      textTransform:'capitalize'
                     }}
                   />
                 )
@@ -284,22 +290,11 @@ const DataTable = () => {
           </AppBar>
         </Box>
 
-        <Typography
-          variant="body2"
-          my={2}
-          style={{
-            fontSize: "16px",
-
-            color: "#7859ED",
-            letterSpacing: "0%",
-          }}
-        >
-          View All
-        </Typography>
+        <Typography variant="body1" color="#7859ED" sx={{cursor:'pointer'}}>View All</Typography>
       </Box>
       <TabPanel value={value} index={0}>
         <TableContainer
-          sx={{ borderRadius: "8px", width: "100%", overflowX: "hidden" }}
+          sx={{ borderRadius: "8px", width: "100%", overflowX: "hidden", }}
         >
           <Table aria-label="customer table" sx={{ width: "100%" }}>
             <TableHead sx={{ backgroundColor: "#BDE1F84D" }}>
@@ -307,14 +302,14 @@ const DataTable = () => {
                 <TableCell align="left"></TableCell>
                 <TableCell>ID</TableCell>
                 <TableCell width={"170px"}>Customer/Vendor Name</TableCell>
-                <TableCell width={"205px"}>Nick Name</TableCell>
+                <TableCell width={"210px"}>Nick Name</TableCell>
                 <TableCell>GST No.</TableCell>
                 <TableCell>Location</TableCell>
                 <TableCell>Email ID</TableCell>
                 <TableCell width={"170px"}>Contact No.</TableCell>
                 <TableCell width={"150px"}>Balance</TableCell>
                 <TableCell>Status</TableCell>
-                <TableCell width={"195px"}>
+                <TableCell width={'150px'}>
                   <Box sx={{ width: "100%", display: "flex" }}>
                     <Typography variant="body2"> Date & time</Typography>
                     <IconButton size="small">
@@ -326,7 +321,6 @@ const DataTable = () => {
                     </IconButton>
                   </Box>
                 </TableCell>
-                <TableCell align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
