@@ -275,6 +275,7 @@ const DataTable = () => {
                       color: value === index ? "#FFFFFF" : "#7859ED", // Selected tab text color
                       borderRadius: "4px",
                       transition: "0.3s",
+                      textTransform: "capitalize",
                     }}
                   />
                 )
@@ -288,7 +289,7 @@ const DataTable = () => {
           my={2}
           style={{
             fontSize: "16px",
-          
+
             color: "#7859ED",
             letterSpacing: "0%",
           }}
@@ -306,22 +307,24 @@ const DataTable = () => {
                 <TableCell align="left"></TableCell>
                 <TableCell>ID</TableCell>
                 <TableCell width={"170px"}>Customer/Vendor Name</TableCell>
-                <TableCell width={"140px"}>Nick Name</TableCell>
+                <TableCell width={"205px"}>Nick Name</TableCell>
                 <TableCell>GST No.</TableCell>
                 <TableCell>Location</TableCell>
                 <TableCell>Email ID</TableCell>
                 <TableCell width={"170px"}>Contact No.</TableCell>
                 <TableCell width={"150px"}>Balance</TableCell>
                 <TableCell>Status</TableCell>
-                <TableCell width={"200px"}>
-                  Date & Time
-                  <IconButton size="small">
-                    <img
-                      src="src/assets/sort.svg"
-                      alt="Arrow_right"
-                      style={{ width: "24px", height: "24px" }}
-                    />
-                  </IconButton>
+                <TableCell width={"195px"}>
+                  <Box sx={{ width: "100%", display: "flex" }}>
+                    <Typography variant="body2"> Date & time</Typography>
+                    <IconButton size="small">
+                      <img
+                        src="src/assets/sort.svg"
+                        alt="Arrow_right"
+                        style={{ width: "24px", height: "24px" }}
+                      />
+                    </IconButton>
+                  </Box>
                 </TableCell>
                 <TableCell align="right"></TableCell>
               </TableRow>
@@ -384,7 +387,7 @@ const DataTable = () => {
                         color: "#2D643D",
                         px: 1,
                         py: 0.5,
-                        borderRadius: 4,
+                        borderRadius: '8px',
                         display: "flex",
                         alignItems: "center",
                         fontSize: "14px",
@@ -398,7 +401,7 @@ const DataTable = () => {
                         <img
                           src="src/assets/info-circle.svg"
                           alt="Info"
-                          style={{ width: "16px", height: "16px" }}
+                          style={{ width: "18px", height: "18px" }}
                         />
                       </IconButton>
                     </Box>
@@ -407,26 +410,32 @@ const DataTable = () => {
                     <Typography variant="body2">{row.dateTime}</Typography>
                   </TableCell>
                   <TableCell align="right">
-                    {hoveredRow === row.id && (
-                      <Box display="flex" gap={1} alignItems="center">
-                        <IconButton size="small">
-                          <img
-                            src="src/assets/refresh-circle.svg"
-                            alt="refresh-circle"
-                            width={"24px"}
-                            height={"24px"}
-                          />
-                        </IconButton>
-                        <IconButton size="small">
-                          <img
-                            src="src/assets/menu-table.svg"
-                            alt="menu-table"
-                            width={"15px"}
-                            height={"15px"}
-                          />
-                        </IconButton>
-                      </Box>
-                    )}
+                    <Box
+                      display="flex"
+                      gap={1}
+                      alignItems="center"
+                      sx={{
+                        visibility:
+                          hoveredRow === row.id ? "visible" : "hidden",
+                      }} // Use visibility instead of conditional rendering
+                    >
+                      <IconButton size="small">
+                        <img
+                          src="src/assets/refresh-circle.svg"
+                          alt="refresh-circle"
+                          width={"24px"}
+                          height={"24px"}
+                        />
+                      </IconButton>
+                      <IconButton size="small">
+                        <img
+                          src="src/assets/menu-table.svg"
+                          alt="menu-table"
+                          width={"15px"}
+                          height={"15px"}
+                        />
+                      </IconButton>
+                    </Box>
                   </TableCell>
                 </TableRow>
               ))}

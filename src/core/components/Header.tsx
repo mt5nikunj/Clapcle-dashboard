@@ -61,12 +61,12 @@ const Header = () => {
             padding: "16px 24px 12px 24px",
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: "16px",height:'45px' }}>
             <IconButton>
               <img
                 src="src/assets/menu.svg"
                 alt="Menu"
-                style={{ width: "28px", height: "28px", paddingRight: "10px" }}
+                style={{ width: "28px", height: "28px", }}
               />
             </IconButton>
             <img
@@ -82,8 +82,8 @@ const Header = () => {
                 mx: 5,
                 borderRadius: "4px",
                 transition: "0.3s",
-                
-                width:'330px',
+
+                width: "280px",
                 "&:hover": {
                   backgroundColor: "white",
                   boxShadow: "0px 4px 10px rgba(11, 11, 11, 0.1)",
@@ -105,7 +105,7 @@ const Header = () => {
                   flex: 1,
                 }}
                 onClick={() => setHoveredRow("tap")}
-                placeholder=""
+                placeholder="Search"
                 inputProps={{ "aria-label": "search" }}
               />
             </Box>
@@ -117,7 +117,7 @@ const Header = () => {
                 mx: 5,
                 borderRadius: "4px",
                 transition: "0.3s",
-                width:'330px',
+                width: "280px",
               }}
             >
               <IconButton sx={{ p: "10px" }} aria-label="menu">
@@ -127,10 +127,10 @@ const Header = () => {
                   style={{ width: "24px", height: "24px" }}
                 />
               </IconButton>
-            
+
               <TextField
                 variant="standard"
-               color="secondary"
+                color="secondary"
                 sx={{
                   ml: 1,
                   mt: 0.9,
@@ -159,18 +159,42 @@ const Header = () => {
           <Box sx={{ display: "flex", alignItems: "center", gap: 2, ml: 3 }}>
             {renderMenu("Quick Access")}
             {renderMenu("Activities")}
-            <Divider
+            <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+              <Box
+                sx={{
+                  height: "24px",
+                  width: "1px",
+                  backgroundColor: "#E6E6E6",
+                  borderRadius: "4px",
+                }}
+              ></Box>
+            </Box>
+            {/* <Divider
               orientation="vertical"
               flexItem
               sx={{ color: "#E6E6E6", height: "24px", width: "1px" }}
-            />
-            <IconButton>
-              <img
-                src="src/assets/notification.svg"
-                alt="Notification"
-                style={{ width: "24px", height: "24px" }}
-              />
-            </IconButton>
+            /> */}
+            <Box sx={{ position: "relative" }}>
+              <Typography
+                variant="body2"
+                sx={{
+                  height: "8px",
+                  width: "8px",
+                  backgroundColor: "#DE7F53",
+                  borderRadius: "50%",
+                  position: "absolute",
+                  top: "7px",
+                  right: "10px",
+                }}
+              ></Typography>
+              <IconButton>
+                <img
+                  src="src/assets/notification.svg"
+                  alt="Notification"
+                  style={{ width: "24px", height: "24px" }}
+                />
+              </IconButton>
+            </Box>
             <img
               src="src/assets/PROFILE.svg"
               alt="Profile"
@@ -193,33 +217,45 @@ const Header = () => {
       </AppBar>
 
       <Box role="presentation" sx={{ padding: "0px 24px 12px 24px" }}>
-        <Breadcrumbs aria-label="breadcrumb">
+        <Breadcrumbs aria-label="breadcrumb" separator="">
           <Link
-          href="/"
-            sx={{ display: "flex", alignItems: "center" , paddingRight: "8px" }}
+            href="/"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "#999999",
+              gap:'4px'
+            }}
             color="inherit"
           >
-            <Box sx={{ display: "flex",  paddingRight: "8px",alignItems: "center" }}>
-            <img
-              src="src/assets/arrow-left.svg"
-              alt="Arrow_left"
-              style={{ width: "24px", height: "24px"}}
-            />
+            <Box
+              sx={{
+                display: "flex",
+                paddingRight: "8px",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="src/assets/arrow-left.svg"
+                alt="Arrow_left"
+                style={{ width: "24px", height: "24px" }}
+              />
             </Box>
-            
             Entry Setup
           </Link>
           <Typography
             sx={{
-              color: "text.primary",
+              color: "#484848",
               display: "flex",
               alignItems: "center",
+              
             }}
           >
             <img
               src="src/assets/arrow-right.svg"
               alt="Arrow_right"
-              style={{ width: "24px", height: "24px"}}
+              style={{ width: "24px", height: "24px" }}
             />
             Customer
           </Typography>
