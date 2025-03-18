@@ -321,6 +321,7 @@ const DataTable = () => {
                     </IconButton>
                   </Box>
                 </TableCell>
+                <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
