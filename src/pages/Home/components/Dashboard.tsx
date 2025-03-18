@@ -24,7 +24,7 @@ import fileImg from "./../../../assets/file.svg";
 import addImg from "./../../../assets/add-square.svg";
 import callImg from "./../../../assets/call-calling.svg";
 import smsImg from "./../../../assets/sms.svg";
-import upArrowImg from "./../../../assets/Vector.svg";
+import upArrowImg from "./../../../assets/arrow-up.svg";
 import Grid from "@mui/material/Grid";
 // import { BarChart } from "@mui/x-charts";
 import DataTable from "./DataTable";
@@ -254,20 +254,21 @@ const Dashboard = () => {
                           justifyContent: "center",
                           alignItems: "center",
                           backgroundColor: "hsl(141.43deg 70% 92.16%)",
-                          borderRadius: "8px",
+                          borderRadius: "4px",
                           marginTop: "10px",
+                          height:'28px'
                         }}
                       >
-                        <Box fontSize={13} paddingRight={"3px"}>
+                        <Box fontSize={'12px'} paddingRight={"3px"} color={'#2D643D'} >
                           {stat.percentage}%
                         </Box>
-                        <Box>
+                        <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                           <img
                             src={upArrowImg}
                             alt="trend"
                             loading="lazy"
-                            height={"12px"}
-                            width={"12px"}
+                            height={"20px"}
+                            width={"20px"}
                           />
                         </Box>
                       </Box>
